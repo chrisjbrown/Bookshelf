@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h3>{{volume.title}}</h3>
+</div>
+<div class="modal-body">
+	<img ng-src={{volume.img}}/>
+	<p>{{volume.title}}</p>
+	<p>by:</p>
+	<p ng-repeat="author in volume.authors">
+		{{author}}
+	</p>
+	<p>{{volume.description}}</p>
+
+	<li class="dropdown">
+	  <button type="button" class="dropdown-toggle btn btn-primary">
+	    Add to a bookshelf
+	  </button>
+	  <ul class="dropdown-menu">
+	    <li ng-repeat="choice in publicShelves">
+	      <a ng-click="choice.containsVolume?removeVolume(choice.id):addVolume(choice.id)">{{choice.title}} <i ng-show="choice.containsVolume" class="glyphicon glyphicon-ok-sign"></i></a>
+	    </li>
+	  </ul>
+	</li>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

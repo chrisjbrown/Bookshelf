@@ -1,0 +1,50 @@
+body {
+	background: #eaeaea url('images/bg.png');
+}
+
+#container{
+	min-height: 80%;
+	padding: 20px 15px;
+	max-width: 90em;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -2em;
+	background-color: #fff;
+}
+
+#loginDiv{
+	text-align: center;
+}
+
+#alerts{
+	width: 40em;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#pageTitle{
+	text-align: center;
+}
+
+#shelfContent{
+	margin: 3em auto;
+	text-align: center;
+}
+
+#searchBox{
+	margin: 2em auto;
+	text-align: center;
+}
+
+#searchResults{
+	margin: 3em auto;
+}
+
+#book{
+	width: 172px;
+  padding: 0 5px 15px 5px;
+  display: inline-block;
+  margin-bottom: 15px;
+  height: 280px;
+  vertical-align: top;
+}

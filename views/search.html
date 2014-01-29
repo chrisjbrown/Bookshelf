@@ -1,0 +1,23 @@
+<tabset>
+  <tab ng-repeat="shelf in shelfTabs" ng-click="changeHash(shelf.href)" active="shelf.active" heading="{{shelf.title}}">
+  </tab>
+  <tab ng-click="changeHash('#/search')" heading="Search">
+  	<div ng-controller="SearchCtrl" id="searchBox">
+  		<form ng-submit="bookSearch(searchQuery)">
+	  		<input ng-model="searchQuery" placeholder="Search for books"/>
+  			<button type="submit">Search</button>
+			</form>
+  		<section id="searchResults">
+  			<p ng-show="totalItems" ng-cloak>Total books on shelf: {{totalItems}}</p>
+	  		<ul>
+	  			<li id="book" ng-repeat="volume in searchResults">
+	  				<a ng-click="volumeResultModal(volume)">
+		  				<img ng-src={{volume.img}}/>
+		  				<p>{{volume.title}}</p>
+	  				</a>
+	  			</li>
+	  		</ul>
+		  </section>
+  	</div>
+  </tab>
+</tabset>

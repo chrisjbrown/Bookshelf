@@ -1,0 +1,22 @@
+<tabset>
+  <tab ng-repeat="shelf in shelfTabs" ng-click="changeHash(shelf.href)" active="shelf.active" heading="{{shelf.title}}">
+  	<section id="shelfContent">
+	  	<div ng-controller="VolumeCtrl">
+	  		<p ng-show="totalItems">Total books on shelf: {{totalItems}}</p>
+	  		<ul>
+	  			<li id="book" ng-repeat="volume in volumes">
+	  				<a ng-click="bookModal(volume)">
+		  				<img ng-src={{volume.img}}/>
+		  				<p ng-cloak>{{volume.title}}</p>
+	  				</a>
+	  			</li>
+	  			<div ng-cloak ng-hide="volumes">
+	  				<p>This shelf seems to be empty!</p>
+	  			</div>
+	  		</ul>
+	  	</div>
+	  </section>
+  </tab>
+  <tab ng-click="changeHash('#/search')" heading="Search">
+  </tab>
+</tabset>
