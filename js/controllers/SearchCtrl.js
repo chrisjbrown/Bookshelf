@@ -14,7 +14,9 @@ bookshelf.controller('SearchCtrl', function(
   //search for books by query
   $scope.bookSearch = function(query){
     if(query){
+      $scope.loading = true;
       googleService.searchBooks(query).then(function(data){
+        $scope.loading = false;
         $scope.searchResults = data.volumes;
         $scope.totalItems = data.totalItems;
       });

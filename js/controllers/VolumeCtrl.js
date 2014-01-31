@@ -13,7 +13,9 @@ bookshelf.controller('VolumeCtrl', function(
 
   //get volumes on shelf
   var init = function(){
+    $scope.loading = true;
     googleService.getVolumes($routeParams.shelfId).then(function(data){
+      $scope.loading = false;
       $scope.totalItems = data.totalItems;
       $scope.volumes = data.volumes;
     });
@@ -34,6 +36,12 @@ bookshelf.controller('VolumeCtrl', function(
           return googleService.getPublicShelves();
         }
       }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      init();
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
     });
   };
 

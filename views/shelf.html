@@ -10,10 +10,15 @@
 		  				<p ng-cloak>{{volume.title}}</p>
 	  				</a>
 	  			</li>
-	  			<div ng-cloak ng-hide="volumes">
+	  			<div ng-cloak ng-hide="loading || volumes">
 	  				<p>This shelf seems to be empty!</p>
 	  			</div>
 	  		</ul>
+	  		<div ng-show="loading" id="loading">
+				  <div class="loading outer">
+				    <div class="loading inner"></div>
+				  </div>
+				</div>
 	  	</div>
 	  </section>
   </tab>
