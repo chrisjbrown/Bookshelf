@@ -202,7 +202,7 @@ bookshelfServices.factory('googleService', function($http, $location, Token, app
       return $http({
         method: 'GET',
         url: googleAPI,
-        params: {projction: 'lite', maxResults: 40, key: apiKey.apiKey, access_token: Token.get()}
+        params: {maxResults: 40, key: apiKey.apiKey, access_token: Token.get()}
       }).then(function(data) {
         var shelfData = {volumes: []}
         angular.forEach(data.data.items, function (child, index) {
@@ -210,7 +210,9 @@ bookshelfServices.factory('googleService', function($http, $location, Token, app
             id: child.id,
             title: child.volumeInfo.title,
             authors: child.volumeInfo.authors,
-            description: child.volumeInfo.description
+            description: child.volumeInfo.description,
+            rating: child.volumeInfo.averageRating,
+            ratingCount: child.volumeInfo.ratingsCount 
           };
 
           if(child.volumeInfo.imageLinks && child.volumeInfo.imageLinks.thumbnail){
